@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="21908" started-at="2016-06-28T17:04:14Z" finished-at="2016-06-28T17:04:36Z">
+  <suite name="Default suite" duration-ms="25699" started-at="2016-08-03T20:39:59Z" finished-at="2016-08-03T20:40:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="21908" started-at="2016-06-28T17:04:14Z" finished-at="2016-06-28T17:04:36Z">
-      <class name="TestCases.EditContentForm">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.EditContentForm@5c7fa833]" name="beforeTest" is-config="true" duration-ms="2285" started-at="2016-06-28T11:04:14Z" finished-at="2016-06-28T11:04:16Z">
+    <test name="Default test" duration-ms="25699" started-at="2016-08-03T20:39:59Z" finished-at="2016-08-03T20:40:25Z">
+      <class name="TestCases.CutPasteContentTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.CutPasteContentTest@5c7fa833]" name="beforeTest" is-config="true" duration-ms="4242" started-at="2016-08-03T14:39:59Z" finished-at="2016-08-03T14:40:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="edit_Content_1()[pri:0, instance:TestCases.EditContentForm@5c7fa833]" name="edit_Content_1" duration-ms="19246" started-at="2016-06-28T11:04:16Z" finished-at="2016-06-28T11:04:35Z">
+        <test-method status="PASS" signature="Cut_Paste_Content_test()[pri:0, instance:TestCases.CutPasteContentTest@5c7fa833]" name="Cut_Paste_Content_test" duration-ms="21055" started-at="2016-08-03T14:40:04Z" finished-at="2016-08-03T14:40:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- edit_Content_1 -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.EditContentForm@5c7fa833]" name="afterTest" is-config="true" duration-ms="364" started-at="2016-06-28T11:04:35Z" finished-at="2016-06-28T11:04:36Z">
+        </test-method> <!-- Cut_Paste_Content_test -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.CutPasteContentTest@5c7fa833]" name="afterTest" is-config="true" duration-ms="390" started-at="2016-08-03T14:40:25Z" finished-at="2016-08-03T14:40:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- TestCases.EditContentForm -->
+      </class> <!-- TestCases.CutPasteContentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

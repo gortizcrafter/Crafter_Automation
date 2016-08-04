@@ -10,16 +10,14 @@ import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.FilesLocations;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
+import pages.DashboardPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.PreviewPage;
 
-public class LoginTest {
+public class CutPasteContentTest {
 
 	WebDriver driver;
-
-	LoginPage objLogin;
-
-	HomePage objHomePage;
 
 	private WebDriverManager driverManager;
 
@@ -30,6 +28,10 @@ public class LoginTest {
 	private ConstantsPropertiesManager constantsPropertiesManager;
 
 	private HomePage homePage;
+
+	private PreviewPage previewPage;
+
+	private DashboardPage dashboardPage;
 
 	// The following code is for the QA needs to execute the test with phantomJS
 
@@ -55,6 +57,8 @@ public class LoginTest {
 		this.constantsPropertiesManager = new ConstantsPropertiesManager(FilesLocations.CONSTANTSPROPERTIESFILEPATH);
 		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
 		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
+		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
+
 	}
 
 	@AfterTest
@@ -64,7 +68,7 @@ public class LoginTest {
 
 	@Test(priority = 0)
 
-	public void login_Test() {
+	public void Cut_Paste_Content_test() {
 
 		// login to application
 
@@ -74,11 +78,72 @@ public class LoginTest {
 
 		homePage.getDriverManager().driverWait();
 
-		// Verify login is fine
+		// go to dashboard page
 
-		String bodyText = driverManager.getDriver().findElement(By.xpath("/html/body/ui-view/section/div/header/h1"))
+		homePage.GoToDashboardPage();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// Show site content panel
+
+		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a"))
+				.click();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// expand pages folder
+
+		dashboardPage.ExpandPagesTree();
+
+		// expand global entry content
+
+		dashboardPage.ClickGlobalEntryTree();
+
+		// expand home content
+
+		dashboardPage.ClickHomeTree();
+
+		// Right click and copy content.
+
+		dashboardPage.RightClickToCutOption();
+
+		// Right click and paste content.
+
+		dashboardPage.RightClickToPasteOption();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// wait for element
+
+		homePage.getDriverManager().driverWait();
+
+		// Assert of the content copied
+
+		String contentCopied = driverManager.getDriver().findElement(By.xpath("//tr/td[contains(span, 'About us')]"))
 				.getText();
-		Assert.assertNotNull(bodyText.contains(bodyText));
+		Assert.assertEquals(contentCopied, "About us *");
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// Cut the content to move it to the original location.
+
+		dashboardPage.RightClickToCutOptionAgain();
+
+		// Paste the content in the original location.
+
+		dashboardPage.RightClickToPasteOptionCut();
 
 	}
 

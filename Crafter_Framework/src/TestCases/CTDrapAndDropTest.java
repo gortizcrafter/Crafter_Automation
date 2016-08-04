@@ -1,29 +1,17 @@
 package TestCases;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.NoSuchElementException;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.FilesLocations;
 import CrafterTools.UIElementsPropertiesManager;
@@ -33,7 +21,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
-public class CTDrapAndDrop {
+public class CTDrapAndDropTest {
 
 	WebDriver driver;
 
@@ -67,60 +55,61 @@ public class CTDrapAndDrop {
 	// This code shows the UI and the QA can see the steps executing in real
 	// time.
 
-	
 	@BeforeClass
-	  public void beforeTest() {
-	        this.driverManager = new WebDriverManager();
-	        this.UIElementsPropertiesManager = new CrafterTools.UIElementsPropertiesManager(FilesLocations.UIELEMENTSPROPERTIESFILEPATH);
-	        this.constantsPropertiesManager = new ConstantsPropertiesManager(FilesLocations.CONSTANTSPROPERTIESFILEPATH);
-	        this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
-	        this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
-	        this.previewPage = new PreviewPage(driverManager, this.UIElementsPropertiesManager);
-	        this.adminConsolePage = new AdminConsolePage(driverManager, this.UIElementsPropertiesManager);
-	  }
-	
+	public void beforeTest() {
+		this.driverManager = new WebDriverManager();
+		this.UIElementsPropertiesManager = new CrafterTools.UIElementsPropertiesManager(
+				FilesLocations.UIELEMENTSPROPERTIESFILEPATH);
+		this.constantsPropertiesManager = new ConstantsPropertiesManager(FilesLocations.CONSTANTSPROPERTIESFILEPATH);
+		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
+		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
+		this.previewPage = new PreviewPage(driverManager, this.UIElementsPropertiesManager);
+		this.adminConsolePage = new AdminConsolePage(driverManager, this.UIElementsPropertiesManager);
+	}
+
 	@AfterTest
-	 public void afterTest() {
-	      driverManager.closeConnection();
-	  }
+	public void afterTest() {
+		driverManager.closeConnection();
+	}
 
 	@Test(priority = 0)
 	public void CT_Drap_And_Drop() {
-		
 
 		// login to application
 
-	    loginPage.loginToCrafter("admin", "1234");
+		loginPage.loginToCrafter("admin", "1234");
 
 		// wait for element is clickeable
-		
-	   homePage.getDriverManager().driverWait();
-	    
+
+		homePage.getDriverManager().driverWait();
+
 		// go to preview page
 		homePage.GoToPreviewPage();
 
 		// wait for element is clickeable
-		
-	   homePage.getDriverManager().driverWait();
+
+		homePage.getDriverManager().driverWait();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
 
 		// Show site content panel
-		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a")).click();
+		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a"))
+				.click();
 
 		// wait for element is clickeable
-		
-		   homePage.getDriverManager().driverWait();
+
+		homePage.getDriverManager().driverWait();
 
 		// go to admin console page
 
 		previewPage.GoToAdminConsolePage();
 
-		//adminConsolePage = new AdminConsolePage(driver);
-
-		
 		// wait for element is clickeable
-		
+
 		homePage.getDriverManager().driverWait();
-		
+
 		// select content types
 		adminConsolePage.SelectContentTypeOption();
 
@@ -128,12 +117,10 @@ public class CTDrapAndDrop {
 
 		adminConsolePage.ClickExistingTypeOption();
 
-		
-
 		// wait for element is clickeable
-		
-	    homePage.getDriverManager().driverWait();
-				
+
+		homePage.getDriverManager().driverWait();
+
 		// Select the generic content type
 
 		adminConsolePage.SelectGenericContentType();
@@ -142,21 +129,20 @@ public class CTDrapAndDrop {
 
 		adminConsolePage.ConfirmContentTypeSelected();
 
-		
+		// wait for element is clickeable
 
-       // wait for element is clickeable
-		
-	    homePage.getDriverManager().driverWait();
+		homePage.getDriverManager().driverWait();
 
 		// Drag and drop Form Section
-		
-	    driverManager.getDriver().manage().window().maximize();
 
-	    driverManager.getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+		driverManager.getDriver().manage().window().maximize();
+
+		driverManager.getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
 		WebElement From = driverManager.getDriver().findElement(By.cssSelector(".control-section"));
 
-		WebElement To = driverManager.getDriver().findElement(By.cssSelector("#content-type-canvas .content-form-name"));
+		WebElement To = driverManager.getDriver()
+				.findElement(By.cssSelector("#content-type-canvas .content-form-name"));
 
 		Actions builder = new Actions(driverManager.getDriver());
 

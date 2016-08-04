@@ -10,16 +10,14 @@ import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.FilesLocations;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
+import pages.DashboardPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.PreviewPage;
 
-public class LoginTest {
+public class AddNewFolderTest {
 
 	WebDriver driver;
-
-	LoginPage objLogin;
-
-	HomePage objHomePage;
 
 	private WebDriverManager driverManager;
 
@@ -30,6 +28,10 @@ public class LoginTest {
 	private ConstantsPropertiesManager constantsPropertiesManager;
 
 	private HomePage homePage;
+
+	private PreviewPage previewPage;
+
+	private DashboardPage dashboardPage;
 
 	// The following code is for the QA needs to execute the test with phantomJS
 
@@ -55,6 +57,8 @@ public class LoginTest {
 		this.constantsPropertiesManager = new ConstantsPropertiesManager(FilesLocations.CONSTANTSPROPERTIESFILEPATH);
 		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
 		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
+		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
+
 	}
 
 	@AfterTest
@@ -64,7 +68,7 @@ public class LoginTest {
 
 	@Test(priority = 0)
 
-	public void login_Test() {
+	public void Add_New_Folder_test() {
 
 		// login to application
 
@@ -74,11 +78,64 @@ public class LoginTest {
 
 		homePage.getDriverManager().driverWait();
 
-		// Verify login is fine
+		// go to dashboard page
 
-		String bodyText = driverManager.getDriver().findElement(By.xpath("/html/body/ui-view/section/div/header/h1"))
-				.getText();
-		Assert.assertNotNull(bodyText.contains(bodyText));
+		homePage.GoToDashboardPage();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// Show site content panel
+
+		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a"))
+				.click();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// expand pages folder
+
+		dashboardPage.ExpandPagesTree();
+
+		// expand global entry content
+
+		dashboardPage.ClickGlobalEntryTree();
+
+		// expand home content
+
+		dashboardPage.ClickHomeTree();
+
+		// right click to see the the menu
+
+		dashboardPage.RightClickNewFolder();
+
+		// Set the name of the folder
+
+		dashboardPage.FolderName("testing01");
+
+		// Create folder button
+
+		dashboardPage.ClickCreateButton();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// expand home content
+
+		// dashboardPage.ClickHomeTree();
+
+		// Assert find the new folder created
+
+		String folderName = driverManager.getDriver()
+				.findElement(By.cssSelector("span.status-icon.folder.no-preview.no-preview.over-effect-set")).getText();
+		Assert.assertEquals(folderName, "testing01 *");
 
 	}
 

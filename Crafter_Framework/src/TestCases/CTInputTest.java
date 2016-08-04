@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +13,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.FilesLocations;
 import CrafterTools.UIElementsPropertiesManager;
@@ -24,7 +22,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
-public class CTInput {
+public class CTInputTest {
 
 	WebDriver driver;
 
@@ -90,12 +88,17 @@ public class CTInput {
 		// go to preview page
 		homePage.GoToPreviewPage();
 
-		// wait for element
+		// wait for element is clickeable
 
 		homePage.getDriverManager().driverWait();
 
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
 		// Show site content panel
-		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a")).click();
+		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a"))
+				.click();
 
 		// wait for element
 
@@ -139,7 +142,8 @@ public class CTInput {
 
 		WebElement From = driverManager.getDriver().findElement(By.cssSelector(".control-section"));
 
-		WebElement To = driverManager.getDriver().findElement(By.cssSelector("#content-type-canvas .content-form-name"));
+		WebElement To = driverManager.getDriver()
+				.findElement(By.cssSelector("#content-type-canvas .content-form-name"));
 
 		Actions builder = new Actions(driverManager.getDriver());
 
@@ -163,7 +167,8 @@ public class CTInput {
 
 		driverManager.getDriver().manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 
-		WebElement FromInput = driverManager.getDriver().findElement(By.cssSelector("#content-type-tools .control:nth-child(3)"));
+		WebElement FromInput = driverManager.getDriver()
+				.findElement(By.cssSelector("#content-type-tools .control:nth-child(3)"));
 
 		WebElement ToDefaultSection = driverManager.getDriver().findElement(
 				By.cssSelector("#content-type-canvas .content-type-visual-section-container:nth-child(3)"));
@@ -217,8 +222,10 @@ public class CTInput {
 		adminConsolePage.clickInputSection();
 
 		// Asserts that fields are not empty.
-		WebElement inputBox = driverManager.getDriver().findElement(By.cssSelector("#properties-container .no-update"));
-		Assert.assertNotNull(inputBox.getText());
+
+		String bodyText = driverManager.getDriver().findElement(By.cssSelector("#properties-container .no-update"))
+				.getText();
+		Assert.assertNotNull(bodyText.contains(bodyText));
 
 	}
 

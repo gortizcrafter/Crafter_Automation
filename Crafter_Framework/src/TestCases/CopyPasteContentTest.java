@@ -1,32 +1,21 @@
 package TestCases;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.FilesLocations;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
-import pages.AdminConsolePage;
+import pages.DashboardPage;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.MyRecentActivityFramePage;
 import pages.PreviewPage;
 
-public class EditContentForm {
+public class CopyPasteContentTest {
 
 	WebDriver driver;
 
@@ -42,9 +31,8 @@ public class EditContentForm {
 
 	private PreviewPage previewPage;
 
-	private AdminConsolePage adminConsolePage;
+	private DashboardPage dashboardPage;
 
-	private MyRecentActivityFramePage myRecentActivityFramePage1;
 	// The following code is for the QA needs to execute the test with phantomJS
 
 	/*
@@ -61,7 +49,7 @@ public class EditContentForm {
 	// This code shows the UI and the QA can see the steps executing in real
 	// time.
 
-	@BeforeClass
+	@BeforeTest
 	public void beforeTest() {
 		this.driverManager = new WebDriverManager();
 		this.UIElementsPropertiesManager = new CrafterTools.UIElementsPropertiesManager(
@@ -69,10 +57,8 @@ public class EditContentForm {
 		this.constantsPropertiesManager = new ConstantsPropertiesManager(FilesLocations.CONSTANTSPROPERTIESFILEPATH);
 		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
 		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
-		this.previewPage = new PreviewPage(driverManager, this.UIElementsPropertiesManager);
-		this.adminConsolePage = new AdminConsolePage(driverManager, this.UIElementsPropertiesManager);
-		this.myRecentActivityFramePage1 = new MyRecentActivityFramePage(driverManager,
-				this.UIElementsPropertiesManager);
+		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
+
 	}
 
 	@AfterTest
@@ -82,18 +68,60 @@ public class EditContentForm {
 
 	@Test(priority = 0)
 
-	public void edit_Content_1() {
+	public void Copy_Paste_Content_test() {
 
 		// login to application
 
 		loginPage.loginToCrafter("admin", "1234");
 
-		// wait for element
+		// wait for element is clickeable
 
 		homePage.getDriverManager().driverWait();
 
 		// go to dashboard page
+
 		homePage.GoToDashboardPage();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// Show site content panel
+
+		driverManager.getDriver().findElement(By.xpath("/html/body/div[2]/div[1]/nav/div/div[2]/ul[1]/li/div/div[1]/a"))
+				.click();
+
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+
+		// expand pages folder
+
+		dashboardPage.ExpandPagesTree();
+
+		// expand global entry content
+
+		dashboardPage.ClickGlobalEntryTree();
+
+		// expand home content
+
+		dashboardPage.ClickHomeTree();
+
+		// Right click and copy content.
+
+		dashboardPage.RightClickToCopyOptionAboutUs();
+
+		// Right click and paste content.
+
+		dashboardPage.RightClickToPasteOption();
+
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
 
 		// wait for element
 
@@ -101,10 +129,6 @@ public class EditContentForm {
 
 		// Click on edit option of recent activity section
 		homePage.ClickEditOptionOfRecentActivitySection();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
 
 		// Switch to the iframe
 		driverManager.getDriver().switchTo().defaultContent();
@@ -115,42 +139,45 @@ public class EditContentForm {
 
 		homePage.getDriverManager().driverWait();
 
-		// Expand default section
-		myRecentActivityFramePage1.ExpandDefaultSection();
+		// edit internal name
 
-		// Clealing title text field
-		myRecentActivityFramePage1.CleaningTitleField();
-
-		// Typing new text on title text field
-		myRecentActivityFramePage1.TypeNewTextOnBodyField("Text for QA");
-
-		// Save and close button.
-		myRecentActivityFramePage1.ClickOnSaveAndCloseButton();
+		dashboardPage.editInternalName("COPY");
 
 		// Switch back to the dashboard page
+
 		driverManager.getDriver().switchTo().defaultContent();
 
 		// wait for element
 
 		homePage.getDriverManager().driverWait();
 
-		// see the page edited
-		homePage.SeeThePageEdited();
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
 
 		// wait for element
 
 		homePage.getDriverManager().driverWait();
 
-		// Switch to the preview iframe
-		driverManager.getDriver().switchTo().defaultContent();
-		driverManager.getDriver().switchTo().frame(driverManager.getDriver().findElement(By.cssSelector(".studio-preview >  iframe")));
+		// Assert of the content copied
 
-		// Assert validation
-		WebElement element = driverManager.getDriver()
-				.findElement(By.cssSelector(".section.primary-section .container .about-text:nth-child(2)"));
-		String strng = element.getText();
-		System.out.println(strng);
-		Assert.assertEquals("Text for QA", strng);
+		String contentCopied = driverManager.getDriver()
+				.findElement(By.xpath("//tr/td[contains(span, 'About usCOPY')]")).getText();
+		Assert.assertEquals(contentCopied, "About usCOPY *");
+
+		// click delete option of the panel
+	    dashboardPage.RightClickToDeleteOption();
+
+		// Click on delete button
+		dashboardPage.ClickDelete();
+
+		// wait for element
+
+		homePage.getDriverManager().driverWait();
+		
+		// Confirm delete
+		dashboardPage.ClicktoDelete();
 
 	}
+
 }

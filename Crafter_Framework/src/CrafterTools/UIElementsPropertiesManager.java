@@ -24,5 +24,9 @@ public class UIElementsPropertiesManager {
 	public void setSharedUIElementsLocators(Properties sharedUIElementsLocators) {
 		this.sharedUIElementsLocators = sharedUIElementsLocators;
 	}
+	
+	public Properties getSharedDataOfExecutionLocators() {
+		return sharedUIElementsLocators;
+	}
 
 }
