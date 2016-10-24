@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestCases.CreateTreeContentTest">
+      <class name="TestCases.AddNewContentTest">
         <methods>
-          <include name="Copy_Paste_Content_test"/>
           <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="Add_New_Content_test"/>
         </methods>
-      </class> <!-- TestCases.CreateTreeContentTest -->
+      </class> <!-- TestCases.AddNewContentTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

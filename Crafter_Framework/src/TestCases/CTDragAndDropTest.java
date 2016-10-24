@@ -21,7 +21,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
-public class CTDrapAndDropTest {
+public class CTDragAndDropTest {
 
 	WebDriver driver;
 

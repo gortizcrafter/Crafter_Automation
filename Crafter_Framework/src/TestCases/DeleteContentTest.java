@@ -2,8 +2,7 @@ package TestCases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -17,7 +16,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
-public class CreateTreeContentTest {
+public class DeleteContentTest {
 
 	WebDriver driver;
 
@@ -60,17 +59,16 @@ public class CreateTreeContentTest {
 		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
 		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
 		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
-
 	}
 
-	// @AfterTest
-	// public void afterTest() {
-	// driverManager.closeConnection();
-	// }
+	//@AfterTest
+	//public void afterTest() {
+		//driverManager.closeConnection();
+	//}
 
 	@Test(priority = 0)
 
-	public void Copy_Paste_Content_test() {
+	public void Add_New_Content_test() {
 
 		// login to application
 
@@ -113,99 +111,31 @@ public class CreateTreeContentTest {
 
 		dashboardPage.ClickHomeTree();
 
-		// Right click and copy content.
+		// right click to delete
 
-		dashboardPage.RightClickToCopyOptionAboutUs();
-
-		// Right click and paste content.
-
-		dashboardPage.RightClickToPasteOption();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// Click on edit option of recent activity section
-		homePage.ClickEditOptionOfRecentActivitySection();
-
-		// Switch to the iframe
-		driverManager.getDriver().switchTo().defaultContent();
-		driverManager.getDriver().switchTo()
-				.frame(driverManager.getDriver().findElement(By.cssSelector(".studio-ice-dialog > .bd iframe")));
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// edit internal name
-
-		dashboardPage.editInternalName("TREE");
-
-		// Switch back to the dashboard page
-
-		driverManager.getDriver().switchTo().defaultContent();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 1
-
-		dashboardPage.RightClickToPasteToTheTree1();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 2
-
-		dashboardPage.RightClickToPasteToTheTree2();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 3
-
-		dashboardPage.RightClickToPasteToTheTree3();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 4
-
-		dashboardPage.RightClickToPasteToTheTree4();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// Assert of the tree created
-
-		String contentCopied = driverManager.getDriver()
-				.findElement(By.xpath("//tr/td[contains(span, 'About usTREE')]")).getText();
-		Assert.assertEquals(contentCopied, "About usTREE *");
-
-	    // Right click to delete
+		dashboardPage.RightClickToDeleteContent();
 		
-		dashboardPage.RightClickToDeleteTheTree();
+		// confirmation 
+		
+		dashboardPage.ClicktoDeleteContent();
+		
+		// submittal complete ok
+		
+		dashboardPage.ClickOKSubmittalComplete();
+		
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
+
+		// Assert of the test case is fine
+		
+		WebElement validation = driverManager.getDriver().findElement(By.cssSelector(".btn.btn-primary"));
+		 
+	  //  Assert.assertTrue(validation.());
+
+		//String contentURL = driverManager.getDriver()
+		//	.findElement(By.xpath("/html/body/section/div/div[4]/div[2]/table/tbody/tr[1]/td[4]")).getText();
+		//Assert.assertTrue(contentURL.contains(contentURL));
 	}
 
 }
