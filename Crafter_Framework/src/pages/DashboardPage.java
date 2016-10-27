@@ -55,6 +55,9 @@ public class DashboardPage {
 	private String clickOnSiteContent;
 	private String deleteContentOK;
 	private String submittalCompleteOK;
+	private String editOption;
+	private String ediPagetUrl;
+	private String pageUrlField;
 
 	/**
 	 * 
@@ -113,11 +116,13 @@ public class DashboardPage {
 				.getProperty("dashboard.about_us_tree");
 		deleteAboutUsTreeCreated = uIElementsManager.getSharedUIElementsLocators()
 				.getProperty("dashboard.delete_about_us_tree");
-		clickOnSiteContent = uIElementsManager.getSharedUIElementsLocators()
-				.getProperty("dashboard.site_content");
+		clickOnSiteContent = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.site_content");
 		deleteContentOK = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.delete_content_OK");
-		submittalCompleteOK = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.submittal_complete");
-		
+		submittalCompleteOK = uIElementsManager.getSharedUIElementsLocators()
+				.getProperty("dashboard.submittal_complete");
+		editOption = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.edit_iframe");
+		ediPagetUrl = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.edit_url_button");
+		pageUrlField = uIElementsManager.getSharedUIElementsLocators().getProperty("dashboard.page_url_field");
 
 	}
 
@@ -770,98 +775,154 @@ public class DashboardPage {
 		this.RightClickPasteTreeLevel4();
 
 	}
-	
-	// Press right click and press delete option to the "aboutoptionCOPY" 
-		public void RightClickDeleteTreeLevel1() {
-			WebElement deleteContentTree = driverManager.getDriver().findElement(By.id(aboutUsOptionTreeCreated));
 
-			Actions action = new Actions(driverManager.getDriver());
-			action.contextClick(deleteContentTree).build().perform();
+	// Press right click and press delete option to the "aboutoptionCOPY"
+	public void RightClickDeleteTreeLevel1() {
+		WebElement deleteContentTree = driverManager.getDriver().findElement(By.id(aboutUsOptionTreeCreated));
 
-			WebElement deleteTheTree = driverManager.getDriver().findElement(By.cssSelector(deleteAboutUsTreeCreated));
-			deleteTheTree.click();
+		Actions action = new Actions(driverManager.getDriver());
+		action.contextClick(deleteContentTree).build().perform();
 
-		}
+		WebElement deleteTheTree = driverManager.getDriver().findElement(By.cssSelector(deleteAboutUsTreeCreated));
+		deleteTheTree.click();
 
-		public void RightClickToDeleteTheTree() {
+	}
 
-			// Press right click and press delete option to the "aboutoptionCOPY" 
+	public void RightClickToDeleteTheTree() {
 
-			this.RightClickDeleteTreeLevel1();
+		// Press right click and press delete option to the "aboutoptionCOPY"
 
-		}
-		
-		// click on Site Content 
+		this.RightClickDeleteTreeLevel1();
 
-		public void ClickSiteContent() {
+	}
 
-			WebElement siteContent = driverManager.getDriver().findElement(By.xpath(clickOnSiteContent));
-			siteContent.click();
+	// click on Site Content
 
-		}
+	public void ClickSiteContent() {
 
-		public void clickOnSiteContentOption() {
+		WebElement siteContent = driverManager.getDriver().findElement(By.xpath(clickOnSiteContent));
+		siteContent.click();
 
-			// click on Site Content 
+	}
 
-			this.ClickSiteContent();
+	public void clickOnSiteContentOption() {
 
-		}
-		
+		// click on Site Content
+
+		this.ClickSiteContent();
+
+	}
+
+	// Press right click and select new content
+
+	public void DeleteContent() {
+
+		WebElement showMenu = driverManager.getDriver().findElement(By.id(homeContent));
+
+		Actions action = new Actions(driverManager.getDriver());
+		action.contextClick(showMenu).build().perform();
+
+		WebElement delContent = driverManager.getDriver().findElement(By.cssSelector(deleteOptionCopied));
+		delContent.click();
+
+	}
+
+	public void RightClickToDeleteContent() {
+
 		// Press right click and select new content
 
-		public void DeleteContent() {
+		this.DeleteContent();
 
-			WebElement showMenu = driverManager.getDriver().findElement(By.id(homeContent));
+	}
 
-			Actions action = new Actions(driverManager.getDriver());
-			action.contextClick(showMenu).build().perform();
+	// Ok delete content option
 
-			WebElement delContent = driverManager.getDriver().findElement(By.cssSelector(deleteOptionCopied));
-			delContent.click();
+	public void DeleteContentOK() {
 
-		}
+		WebElement confirmDelete = driverManager.getDriver().findElement(By.id(deleteContentOK));
+		confirmDelete.click();
 
-		public void RightClickToDeleteContent() {
+	}
 
-			// Press right click and select new content
+	public void ClicktoDeleteContent() {
 
-			this.DeleteContent();
-
-		}
-		
 		// Ok delete content option
 
-		public void DeleteContentOK() {
+		this.DeleteContentOK();
 
-			WebElement confirmDelete = driverManager.getDriver().findElement(By.id(deleteContentOK));
-			confirmDelete.click();
+	}
 
-		}
+	// Ok submittal complete
 
-		public void ClicktoDeleteContent() {
+	public void SubmittalCompleteOK() {
 
-			// Ok delete content option
+		WebElement submittalComplete = driverManager.getDriver().findElement(By.cssSelector(submittalCompleteOK));
+		submittalComplete.click();
 
-			this.DeleteContentOK();
+	}
 
-		}
-		
+	public void ClickOKSubmittalComplete() {
+
 		// Ok submittal complete
 
-		public void SubmittalCompleteOK() {
+		this.SubmittalCompleteOK();
 
-			WebElement submittalComplete = driverManager.getDriver().findElement(By.cssSelector(submittalCompleteOK));
-			submittalComplete.click();
+	}
 
-		}
+	// Press right click and select edit
 
-		public void ClickOKSubmittalComplete() {
+	public void EditMenu() {
 
-			// Ok submittal complete
+		WebElement showMenu = driverManager.getDriver().findElement(By.id(homeContent));
 
-			this.SubmittalCompleteOK();
+		Actions action = new Actions(driverManager.getDriver());
+		action.contextClick(showMenu).build().perform();
 
-		}
+		WebElement goToEditIframe = driverManager.getDriver().findElement(By.cssSelector(editOption));
+		goToEditIframe.click();
+
+	}
+
+	public void GoToEditIframe() {
+
+		// Press right click and select edit
+
+		this.EditMenu();
+
+	}
+
+	// click on edit page button
+
+	public void EditURLbutton() {
+
+		WebElement editURLButton = driverManager.getDriver().findElement(By.cssSelector(ediPagetUrl));
+		editURLButton.click();
+
+	}
+
+	public void ClickOnEditPageURLButton() {
+
+		// click on edit page button
+
+		this.EditURLbutton();
+
+	}
+	
+	// Set the new name of the URL
+
+	public void URLPageName(String strNewURL) {
+
+		WebElement URLName = driverManager.getDriver().findElement(By.cssSelector(pageUrlField));
+		URLName.sendKeys(strNewURL);
+
+	}
+
+	public void SetNewPageURL(String strNewURL) {
+
+		// Set the new name of the URL
+
+		this.URLPageName(strNewURL);
+
+	}
 
 }

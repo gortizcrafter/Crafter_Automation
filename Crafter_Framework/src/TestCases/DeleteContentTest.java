@@ -61,14 +61,14 @@ public class DeleteContentTest {
 		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
 	}
 
-	//@AfterTest
-	//public void afterTest() {
-		//driverManager.closeConnection();
-	//}
+	@AfterTest
+	public void afterTest() {
+		driverManager.closeConnection();
+	}
 
 	@Test(priority = 0)
 
-	public void Add_New_Content_test() {
+	public void Delete_Content() {
 
 		// login to application
 
@@ -126,12 +126,16 @@ public class DeleteContentTest {
 		// reload page
 
 		driverManager.getDriver().navigate().refresh();
+		
+		// reload page
+
+		driverManager.getDriver().navigate().refresh();
 
 		// Assert of the test case is fine
 		
-		WebElement validation = driverManager.getDriver().findElement(By.cssSelector(".btn.btn-primary"));
-		 
-	  //  Assert.assertTrue(validation.());
+	    
+		
+	    //  Assert.assertTrue(validation.());
 
 		//String contentURL = driverManager.getDriver()
 		//	.findElement(By.xpath("/html/body/section/div/div[4]/div[2]/table/tbody/tr[1]/td[4]")).getText();

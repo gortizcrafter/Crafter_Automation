@@ -1,151 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="46296" started-at="2016-10-24T21:30:40Z" finished-at="2016-10-24T21:31:27Z">
+  <suite name="Default suite" duration-ms="26501" started-at="2016-10-27T00:31:41Z" finished-at="2016-10-27T00:32:08Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="46296" started-at="2016-10-24T21:30:40Z" finished-at="2016-10-24T21:31:27Z">
-      <class name="TestCases.AddNewContentTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.AddNewContentTest@d2cc05a]" name="beforeTest" is-config="true" duration-ms="1580" started-at="2016-10-24T15:30:40Z" finished-at="2016-10-24T15:30:42Z">
+    <test name="Default test" duration-ms="26501" started-at="2016-10-27T00:31:41Z" finished-at="2016-10-27T00:32:08Z">
+      <class name="TestCases.EditURLTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="beforeTest" is-config="true" duration-ms="2498" started-at="2016-10-26T18:31:41Z" finished-at="2016-10-26T18:31:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="FAIL" signature="Add_New_Content_test()[pri:0, instance:TestCases.AddNewContentTest@d2cc05a]" name="Add_New_Content_test" duration-ms="44686" started-at="2016-10-24T15:30:42Z" finished-at="2016-10-24T15:31:27Z">
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
-System info: host: 'Gustavo-Ortiz.local', ip: '192.168.1.65', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_91'
-Driver info: driver.version: RemoteWebDriver
-Capabilities [{browserName=safari, takesScreenshot=true, javascriptEnabled=true, version=9.1.3, cssSelectorsEnabled=true, platform=MAC, secureSsl=true}]
-Session ID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
-System info: host: 'Gustavo-Ortiz.local', ip: '192.168.1.65', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_91'
-Driver info: driver.version: RemoteWebDriver
-Capabilities [{browserName=safari, takesScreenshot=true, javascriptEnabled=true, version=9.1.3, cssSelectorsEnabled=true, platform=MAC, secureSsl=true}]
-Session ID: null
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at pages.DashboardPage.ClickGlobalEntryContent(DashboardPage.java:151)
-	at pages.DashboardPage.ClickGlobalEntryTree(DashboardPage.java:160)
-	at TestCases.AddNewContentTest.Add_New_Content_test(AddNewContentTest.java:107)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:774)
-	at org.testng.TestRunner.run(TestRunner.java:624)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: org.openqa.selenium.safari.ConnectionClosedException: The underlying channel was closed
-Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
-System info: host: 'Gustavo-Ortiz.local', ip: '192.168.1.65', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_91'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.safari.WebSocketConnection$2.operationComplete(WebSocketConnection.java:79)
-	at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:428)
-	at org.jboss.netty.channel.DefaultChannelFuture.notifyListeners(DefaultChannelFuture.java:419)
-	at org.jboss.netty.channel.DefaultChannelFuture.setSuccess(DefaultChannelFuture.java:363)
-	at org.jboss.netty.channel.AbstractChannel$ChannelCloseFuture.setClosed(AbstractChannel.java:355)
-	at org.jboss.netty.channel.AbstractChannel.setClosed(AbstractChannel.java:185)
-	at org.jboss.netty.channel.socket.nio.AbstractNioChannel.setClosed(AbstractNioChannel.java:204)
-	at org.jboss.netty.channel.socket.nio.NioSocketChannel.setClosed(NioSocketChannel.java:84)
-	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.close(AbstractNioWorker.java:705)
-	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:89)
-	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:465)
-	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:332)
-	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35)
-	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102)
-	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
+        <test-method status="PASS" signature="Edit_Url()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="Edit_Url" duration-ms="23847" started-at="2016-10-26T18:31:44Z" finished-at="2016-10-26T18:32:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Add_New_Content_test -->
-        <test-method status="FAIL" signature="afterTest()[pri:0, instance:TestCases.AddNewContentTest@d2cc05a]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-10-24T15:31:27Z" finished-at="2016-10-24T15:31:27Z">
-          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
-            <message>
-              <![CDATA[Error communicating with the remote browser. It may have died.
-Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
-System info: host: 'Gustavo-Ortiz.local', ip: '192.168.1.65', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_91'
-Driver info: driver.version: RemoteWebDriver
-Capabilities [{browserName=safari, takesScreenshot=true, javascriptEnabled=true, version=9.1.3, cssSelectorsEnabled=true, platform=MAC, secureSsl=true}]
-Session ID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
-Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
-System info: host: 'Gustavo-Ortiz.local', ip: '192.168.1.65', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.11.6', java.version: '1.8.0_91'
-Driver info: driver.version: RemoteWebDriver
-Capabilities [{browserName=safari, takesScreenshot=true, javascriptEnabled=true, version=9.1.3, cssSelectorsEnabled=true, platform=MAC, secureSsl=true}]
-Session ID: null
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:665)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:701)
-	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:521)
-	at CrafterTools.WebDriverManager.closeConnection(WebDriverManager.java:36)
-	at TestCases.AddNewContentTest.afterTest(AddNewContentTest.java:65)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.afterRun(TestRunner.java:1023)
-	at org.testng.TestRunner.run(TestRunner.java:628)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-	at org.testng.TestNG.run(TestNG.java:1048)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.lang.IllegalStateException: The WebSocket connection has been closed
-	at com.google.common.base.Preconditions.checkState(Preconditions.java:174)
-	at org.openqa.selenium.safari.WebSocketConnection.checkChannel(WebSocketConnection.java:118)
-	at org.openqa.selenium.safari.WebSocketConnection.send(WebSocketConnection.java:131)
-	at org.openqa.selenium.safari.SafariDriverCommandExecutor.execute(SafariDriverCommandExecutor.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:644)
-	... 26 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
+        </test-method> <!-- Edit_Url -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="afterTest" is-config="true" duration-ms="141" started-at="2016-10-26T18:32:07Z" finished-at="2016-10-26T18:32:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- TestCases.AddNewContentTest -->
+      </class> <!-- TestCases.EditURLTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

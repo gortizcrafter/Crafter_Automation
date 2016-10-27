@@ -2,6 +2,7 @@ package TestCases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
-public class CreateTreeContentTest {
+public class EditURLTest {
 
 	WebDriver driver;
 
@@ -60,17 +61,16 @@ public class CreateTreeContentTest {
 		this.loginPage = new LoginPage(driverManager, this.UIElementsPropertiesManager);
 		this.homePage = new HomePage(driverManager, this.UIElementsPropertiesManager);
 		this.dashboardPage = new DashboardPage(driverManager, this.UIElementsPropertiesManager);
-
 	}
 
 	@AfterTest
 	public void afterTest() {
-	driverManager.closeConnection();
+		driverManager.closeConnection();
 	}
 
 	@Test(priority = 0)
 
-	public void Copy_Paste_Content_test() {
+	public void Edit_Url() {
 
 		// login to application
 
@@ -113,99 +113,52 @@ public class CreateTreeContentTest {
 
 		dashboardPage.ClickHomeTree();
 
-		// Right click and copy content.
+		// right click to delete
 
-		dashboardPage.RightClickToCopyOptionAboutUs();
-
-		// Right click and paste content.
-
-		dashboardPage.RightClickToPasteOption();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// Click on edit option of recent activity section
-		homePage.ClickEditOptionOfRecentActivitySection();
-
+		dashboardPage.GoToEditIframe();
+		
 		// Switch to the iframe
+		
 		driverManager.getDriver().switchTo().defaultContent();
 		driverManager.getDriver().switchTo()
 				.frame(driverManager.getDriver().findElement(By.cssSelector(".studio-ice-dialog > .bd iframe")));
-
-		// wait for element
+		
+		// wait for element is clickeable
 
 		homePage.getDriverManager().driverWait();
+		
+		// Click on Edit page URL button
+		
+		dashboardPage.ClickOnEditPageURLButton();
+		
+		// Ok for the dialog window when appears
 
-		// edit internal name
-
-		dashboardPage.editInternalName("TREE");
-
+		new WebDriverWait(driverManager.getDriver(), 10).until(ExpectedConditions.alertIsPresent());
+		driverManager.getDriver().switchTo().alert().accept();
+		
+		// Set the new url
+		
+		dashboardPage.SetNewPageURL("urledited");
+		
+		// Save and close
+		
+		dashboardPage.clickSaveClose();
+		
 		// Switch back to the dashboard page
 
 		driverManager.getDriver().switchTo().defaultContent();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// wait for element
-
-		homePage.getDriverManager().driverWait();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 1
-
-		dashboardPage.RightClickToPasteToTheTree1();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 2
-
-		dashboardPage.RightClickToPasteToTheTree2();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 3
-
-		dashboardPage.RightClickToPasteToTheTree3();
-
-		// Right click and copy content.
-
-		dashboardPage.RightClickToCopyOptionAboutUsToTree();
-
-		// Paste the about us to the tree 4
-
-		dashboardPage.RightClickToPasteToTheTree4();
-
-		// reload page
-
-		driverManager.getDriver().navigate().refresh();
-
-		// Assert of the tree created
-
-		String contentCopied = driverManager.getDriver()
-				.findElement(By.xpath("//tr/td[contains(span, 'About usTREE')]")).getText();
-		Assert.assertEquals(contentCopied, "About usTREE *");
-
-	    // Right click to delete
 		
-		dashboardPage.RightClickToDeleteTheTree();
+				
+		// wait for element is clickeable
+
+		homePage.getDriverManager().driverWait();
+		
+		// Assert of the test case is fine
+
+		String UrlName = driverManager.getDriver()
+		.findElement(By.xpath("/html/body/section/div/div[4]/div[2]/table/tbody/tr[4]/td[4]")).getText();
+		Assert.assertEquals(UrlName, "/enurledited");
+	
 	}
 
 }
