@@ -16,6 +16,12 @@ import pages.LoginPage;
 import pages.MyRecentActivityFramePage;
 import pages.PreviewPage;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class EditContentFormTest {
 
 	WebDriver driver;

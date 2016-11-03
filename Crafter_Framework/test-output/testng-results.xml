@@ -1,25 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26501" started-at="2016-10-27T00:31:41Z" finished-at="2016-10-27T00:32:08Z">
+  <suite name="CrafterSuite" duration-ms="150891" started-at="2016-11-02T21:32:33Z" finished-at="2016-11-02T21:35:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26501" started-at="2016-10-27T00:31:41Z" finished-at="2016-10-27T00:32:08Z">
-      <class name="TestCases.EditURLTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="beforeTest" is-config="true" duration-ms="2498" started-at="2016-10-26T18:31:41Z" finished-at="2016-10-26T18:31:44Z">
+    <test name="Block 1" duration-ms="82086" started-at="2016-11-02T21:32:33Z" finished-at="2016-11-02T21:33:55Z">
+      <class name="TestCases.CreateSiteTest">
+        <test-method status="PASS" signature="create_site()[pri:0, instance:TestCases.CreateSiteTest@548a9f61]" name="create_site" duration-ms="29999" started-at="2016-11-02T15:32:38Z" finished-at="2016-11-02T15:33:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_site -->
+      </class> <!-- TestCases.CreateSiteTest -->
+      <class name="TestCases.AddNewContentTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.AddNewContentTest@1753acfe]" name="beforeTest" is-config="true" duration-ms="2040" started-at="2016-11-02T15:32:33Z" finished-at="2016-11-02T15:32:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Edit_Url()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="Edit_Url" duration-ms="23847" started-at="2016-10-26T18:31:44Z" finished-at="2016-10-26T18:32:07Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.CreateSiteTest@548a9f61]" name="beforeTest" is-config="true" duration-ms="1495" started-at="2016-11-02T15:32:35Z" finished-at="2016-11-02T15:32:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Edit_Url -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.EditURLTest@20e2cbe0]" name="afterTest" is-config="true" duration-ms="141" started-at="2016-10-26T18:32:07Z" finished-at="2016-10-26T18:32:08Z">
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.DeleteSiteTest@7c16905e]" name="beforeTest" is-config="true" duration-ms="1593" started-at="2016-11-02T15:32:37Z" finished-at="2016-11-02T15:32:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Add_New_Content_test()[pri:0, instance:TestCases.AddNewContentTest@1753acfe]" name="Add_New_Content_test" duration-ms="33996" started-at="2016-11-02T15:33:08Z" finished-at="2016-11-02T15:33:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Add_New_Content_test -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.AddNewContentTest@1753acfe]" name="afterTest" is-config="true" duration-ms="189" started-at="2016-11-02T15:33:55Z" finished-at="2016-11-02T15:33:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- TestCases.EditURLTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.CreateSiteTest@548a9f61]" name="afterTest" is-config="true" duration-ms="187" started-at="2016-11-02T15:33:55Z" finished-at="2016-11-02T15:33:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.DeleteSiteTest@7c16905e]" name="afterTest" is-config="true" duration-ms="174" started-at="2016-11-02T15:33:55Z" finished-at="2016-11-02T15:33:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- TestCases.AddNewContentTest -->
+      <class name="TestCases.DeleteSiteTest">
+        <test-method status="PASS" signature="delete_site()[pri:0, instance:TestCases.DeleteSiteTest@7c16905e]" name="delete_site" duration-ms="12391" started-at="2016-11-02T15:33:42Z" finished-at="2016-11-02T15:33:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delete_site -->
+      </class> <!-- TestCases.DeleteSiteTest -->
+    </test> <!-- Block 1 -->
+    <test name="Block 2" duration-ms="68409" started-at="2016-11-02T21:33:56Z" finished-at="2016-11-02T21:35:04Z">
+      <class name="TestCases.CreateSiteTest">
+        <test-method status="PASS" signature="create_site()[pri:0, instance:TestCases.CreateSiteTest@475530b9]" name="create_site" duration-ms="29876" started-at="2016-11-02T15:34:00Z" finished-at="2016-11-02T15:34:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- create_site -->
+      </class> <!-- TestCases.CreateSiteTest -->
+      <class name="TestCases.DeleteSiteTest">
+        <test-method status="PASS" signature="delete_site()[pri:0, instance:TestCases.DeleteSiteTest@26be92ad]" name="delete_site" duration-ms="12374" started-at="2016-11-02T15:34:51Z" finished-at="2016-11-02T15:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- delete_site -->
+      </class> <!-- TestCases.DeleteSiteTest -->
+      <class name="TestCases.AddNewFolderTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.AddNewFolderTest@1d057a39]" name="beforeTest" is-config="true" duration-ms="1919" started-at="2016-11-02T15:33:56Z" finished-at="2016-11-02T15:33:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.CreateSiteTest@475530b9]" name="beforeTest" is-config="true" duration-ms="1314" started-at="2016-11-02T15:33:58Z" finished-at="2016-11-02T15:33:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:TestCases.DeleteSiteTest@26be92ad]" name="beforeTest" is-config="true" duration-ms="1341" started-at="2016-11-02T15:33:59Z" finished-at="2016-11-02T15:34:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Add_New_Folder_test()[pri:0, instance:TestCases.AddNewFolderTest@1d057a39]" name="Add_New_Folder_test" duration-ms="21020" started-at="2016-11-02T15:34:30Z" finished-at="2016-11-02T15:34:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Add_New_Folder_test -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.AddNewFolderTest@1d057a39]" name="afterTest" is-config="true" duration-ms="183" started-at="2016-11-02T15:35:04Z" finished-at="2016-11-02T15:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.CreateSiteTest@475530b9]" name="afterTest" is-config="true" duration-ms="158" started-at="2016-11-02T15:35:04Z" finished-at="2016-11-02T15:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:TestCases.DeleteSiteTest@26be92ad]" name="afterTest" is-config="true" duration-ms="216" started-at="2016-11-02T15:35:04Z" finished-at="2016-11-02T15:35:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- TestCases.AddNewFolderTest -->
+    </test> <!-- Block 2 -->
+  </suite> <!-- CrafterSuite -->
 </testng-results>

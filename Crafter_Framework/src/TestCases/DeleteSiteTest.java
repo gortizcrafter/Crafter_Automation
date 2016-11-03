@@ -20,6 +20,12 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class DeleteSiteTest {
 
 	WebDriver driver;
@@ -71,10 +77,10 @@ public class DeleteSiteTest {
 
 	}
 
-	// @AfterTest
-	// public void afterTest() {
-	// .closeConnection();
-	// }
+	@AfterTest
+	public void afterTest() {
+		driverManager.closeConnection();
+	}
 
 	@Test(priority = 0)
 
@@ -106,21 +112,6 @@ public class DeleteSiteTest {
 
 		// Assert
 
-		for (int i=1; i<6; i++)
-		  {
-
-		   //To verify element is present on page or not.
-		   String XPath = "/html/body/ui-view/section/div/div/div[2]/table/tbody/tr/td[5]/a/i";
-		   Boolean iselementpresent = driver.findElements(By.xpath(XPath)).size()!= 0;
-		   if (iselementpresent == true)
-		   {
-		    System.out.print("\nTargeted TextBox"+i+" Is Present On The Page");
-		   }
-		   else
-		   {
-		    System.out.print("\nTargeted Text Box"+i+" Is Not Present On The Page PUTO");
-		   }
-		  }
-
+		Assert.assertFalse(false, ".glyphicon.glyphicon-trash");
 	}
 }

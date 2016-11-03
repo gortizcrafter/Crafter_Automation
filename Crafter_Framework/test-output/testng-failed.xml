@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestCases.EditURLTest">
+      <class name="TestCases.CreateSiteTest">
         <methods>
-          <include name="beforeTest"/>
-          <include name="Edit_Url"/>
+          <include name="setup"/>
+          <include name="create_site"/>
         </methods>
-      </class> <!-- TestCases.EditURLTest -->
+      </class> <!-- TestCases.CreateSiteTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

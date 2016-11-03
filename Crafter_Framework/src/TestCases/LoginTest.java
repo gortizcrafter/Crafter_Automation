@@ -13,6 +13,12 @@ import CrafterTools.WebDriverManager;
 import pages.HomePage;
 import pages.LoginPage;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class LoginTest {
 
 	WebDriver driver;

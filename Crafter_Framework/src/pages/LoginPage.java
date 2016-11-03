@@ -6,6 +6,12 @@ import org.openqa.selenium.WebElement;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class LoginPage {
 
 	private WebDriverManager driverManager;

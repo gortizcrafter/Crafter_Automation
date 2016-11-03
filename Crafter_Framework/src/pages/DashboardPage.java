@@ -7,6 +7,12 @@ import org.openqa.selenium.interactions.Actions;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class DashboardPage {
 
 	private WebDriverManager driverManager;

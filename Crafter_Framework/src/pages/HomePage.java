@@ -9,6 +9,12 @@ import CrafterTools.ConstantsPropertiesManager;
 import CrafterTools.UIElementsPropertiesManager;
 import CrafterTools.WebDriverManager;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class HomePage {
 
 	private WebDriverManager driverManager;

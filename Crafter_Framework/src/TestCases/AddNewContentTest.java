@@ -1,7 +1,12 @@
 package TestCases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,6 +19,12 @@ import pages.DashboardPage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
+
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
 
 public class AddNewContentTest {
 
@@ -35,16 +46,16 @@ public class AddNewContentTest {
 
 	// The following code is for the QA needs to execute the test with phantomJS
 
-	/*
-	 * @BeforeTest public void setup() throws Exception { //Set phantomjs.exe
-	 * executable file path using DesiredCapabilities. DesiredCapabilities
-	 * capability = new DesiredCapabilities();
-	 * capability.setCapability(PhantomJSDriverService.
-	 * PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-	 * "/Users/gustavoortizalfaro/Documents/workspace/phantomjs-2.1.1-macosx/bin/phantomjs"
-	 * ); driver = new PhantomJSDriver(capability);
-	 * driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); }
-	 */
+	
+//	  @BeforeTest public void setup() throws Exception { 
+//	  //Set phantomjs.exe executable file path using DesiredCapabilities. 
+//	  DesiredCapabilities capability = new DesiredCapabilities();
+//	  capability.setCapability(PhantomJSDriverService.
+//	  PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+//	  "/Users/gustavoortizalfaro/Documents/workspace/phantomjs-2.1.1-macosx/bin/phantomjs"
+//	  ); driver = new PhantomJSDriver(capability);
+//	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); }
+	 
 
 	// This code shows the UI and the QA can see the steps executing in real
 	// time.

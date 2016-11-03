@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test name="Test">
+<suite name="CrafterSuite">
+  <test name="Block 1">
+  <classes>
+    <class name="TestCases.CreateSiteTest" />
+    <class name="TestCases.AddNewContentTest" />
+    <class name="TestCases.DeleteSiteTest" />
+  </classes>
   </test> <!-- Test -->
+  
+  <test name="Block 2">
+  <classes>
+    <class name="TestCases.CreateSiteTest" />
+    <class name="TestCases.AddNewFolderTest" />
+    <class name="TestCases.DeleteSiteTest" />
+  </classes>
+  </test> <!-- Test -->
+  
 </suite> <!-- Suite -->

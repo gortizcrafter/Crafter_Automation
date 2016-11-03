@@ -16,6 +16,12 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PreviewPage;
 
+/**
+ * Costa Rica Crafter Software team
+ * @author Gustavo Andrei Ortiz Alfaro 
+ *
+ */
+
 public class EnableDisableEditingInContextTest {
 
 	WebDriver driver;
